@@ -1,0 +1,119 @@
+/* ========== LEFT PANEL ========== */
+.left-panel {
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0.05)),
+    url('/assets/images/virtusa.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 100px 60px;
+}
+
+/* Branding Content */
+.branding-content {
+  max-width: 500px;
+  margin-bottom: 60px;
+}
+
+.welcome-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.welcome-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  opacity: 0.95;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+/* ========== LOGIN CARD ========== */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+/* Hover subtle lift */
+.login-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Inputs */
+.custom-input {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  transition: 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.15rem rgba(102, 126, 234, 0.15);
+}
+
+/* Login Button */
+.login-btn {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(118, 75, 162, 0.25);
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 40px;
+  background: #ddd;
+  top: 50%;
+}
+
+.divider::before {
+  left: -50px;
+}
+
+.divider::after {
+  right: -50px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Improvement */
+@media (max-width: 991px) {
+  .left-panel {
+    display: none;
+  }
+}

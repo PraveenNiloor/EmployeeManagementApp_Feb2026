@@ -1,0 +1,42 @@
+<div class="parent">
+  <div class="container my-1 h-100">
+    <h2 class="text-center text-primary  mb-1">Employee Details</h2>
+    
+    <div class="table-responsive shadow rounded">
+      <table class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-primary text-success">
+          <tr>
+            <th>SL No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>City</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+  <tr *ngFor="let item of employeeslist(); let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.email }}</td>
+    <td>{{ item.mobileNo }}</td>
+    <td>{{ item.designationName }}</td>
+    <td>{{ item.departmentName }}</td>
+    <td>{{ item.role }}</td>
+    <td>{{ item.city }}</td>
+    <td>
+      <button class="btn btn-sm btn-primary me-1" [routerLink]="'/employee/'+item.empId">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="onDelete(item.empId)">Delete</button>
+    </td>
+  </tr>
+          <!-- Additional rows dynamically added via JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,118 @@
+<div class="container-fluid mt-3">
+
+    <!-- Page Title -->
+    <div class="bg-primary text-white py-3 px-4 rounded shadow-sm">
+        <h4 class="mb-0">Designation Management</h4>
+    </div>
+
+    <!-- Form Section -->
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+
+            <form>
+                <div class="row g-3 align-items-end">
+
+                    <!-- Department Dropdown -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">Department</label>
+                        <select class="form-select"
+                                [(ngModel)]="designationModel.deptId"
+                                name="deptId">
+                            <option value="0">Select Department</option>
+                            <option *ngFor="let dept of deptList()"
+                                    [value]="dept.deptId">
+                                {{ dept.deptName }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Designation Name -->
+                    <div class="col-md-4">
+                        <label class="form-label fw-semibold">Designation Name</label>
+                        <input type="text"
+                               class="form-control"
+                               [(ngModel)]="designationModel.designationName"
+                               name="designationName"
+                               placeholder="Enter designation name">
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="col-md-4">
+                        <div class="mt-3 mt-md-4">
+
+                            @if(designationModel.designationId === 0) {
+                                <button type="button"
+                                        (click)="onSaveDesignation()"
+                                        class="btn btn-primary me-2">
+                                    <i class="bi bi-save"></i> Save
+                                </button>
+                            }
+                            @else {
+                                <button type="button"
+                                        (click)="onUpdateDesignation()"
+                                        class="btn btn-warning me-2">
+                                    <i class="bi bi-pencil-square"></i> Update
+                                </button>
+                            }
+
+                            <button type="button"
+                                    class="btn btn-secondary"
+                                    (click)="onReset()">
+                                <i class="bi bi-arrow-clockwise"></i> Reset
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body table-responsive">
+ 
+            <table class="table table-hover table-bordered align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th style="width: 80px;">SL No</th>
+                        <th>Department</th>
+                        <th>Designation Name</th>
+                        <th style="width: 180px;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of designationList(); let i = index">
+                        <td class="text-center">{{ i + 1 }}</td>
+                         <td class="text-center">{{item.departmentName}}</td>
+                        <td>{{ item.designationName }}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-warning me-2"
+                                    (click)="onEdit(item)">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+
+                            <button class="btn btn-sm btn-danger"
+                                    (click)="onDelete(item.designationId)">
+                                <i class="bi bi-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr *ngIf="designationList.length === 0">
+                        <td colspan="4" class="text-center text-muted py-3">
+                            No designations found
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+

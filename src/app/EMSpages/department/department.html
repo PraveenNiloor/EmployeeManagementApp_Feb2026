@@ -1,0 +1,90 @@
+<div class="container mt-1">
+
+    <!-- Page Title -->
+    <div class="container-fluid px-4 mt-3">
+        <div class="bg-primary text-white py-3 px-3 rounded">
+            <h2 class="mb-0">Department Management</h2>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container-fluid px-4 mt-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <form>
+
+                    <div class="row align-items-end">
+
+                        <!-- Department Name -->
+                        <div class="col-md-3">
+                            <label class="form-label">Department Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="dept.deptName" name="deptName"
+                                placeholder="Enter department name">
+                        </div>
+
+                        <!-- Is Active -->
+                        <div class="col-md-2">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="dept.isActive"
+                                    name="isActive" id="isActive">
+                                <label class="form-check-label" for="isActive">
+                                    Is Active
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="col-md-2">
+                            @if(dept.deptId === 0)
+                            {
+                                <button type="button" (click)="onSaveDepartment()" class="btn btn-primary me-2">
+                                Save
+                            </button>
+                            }
+                            @else {
+                                <button type="button" (click)="onUpdateDept()" class="btn btn-warning me-1">
+                                Update
+                            </button>
+                            }
+                            
+                            <button type="button" class="btn btn-secondary" (click)="onReset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>SL No</th>
+                            <th>Department Name</th>
+                            <th>Is Active</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of deptList(); let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{ item.deptName }}</td>
+                            <td>{{ item.isActive ? 'Yes':'No'}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-warning mx-2" (click)="onEdit(item)">Edit</button>
+                                <button class="btn btn-sm btn-danger" (click)="onDelete(item.deptId)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

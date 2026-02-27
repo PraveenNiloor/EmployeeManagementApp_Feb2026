@@ -1,0 +1,98 @@
+<div class="parent">
+
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+
+<!-- Left Side (Branding Section) -->
+<div class="col-lg-6 d-none d-lg-flex left-panel">
+
+  <div class="branding-content text-white">
+    <h1 class="welcome-title">
+      Welcome Back!
+    </h1>
+    <p class="welcome-subtitle">
+      Access your dashboard and manage everything in one place.
+    </p>
+  </div>
+
+</div>
+
+
+
+
+    <!-- Right Side (Login Form) -->
+    <div class="col-lg-6 d-flex align-items-center justify-content-center bg-light">
+      <div class="login-card p-5 shadow-lg">
+
+        <div class="text-center mb-4">
+          <h3 class="fw-bold">Sign In</h3>
+          <p class="text-muted">Login to continue</p>
+        </div>
+
+        <form>
+
+          <!-- Email -->
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control custom-input" id="email" name="email" [(ngModel)]="loginObj.email" placeholder="name@example.com">
+            <label for="email"><i class="bi bi-envelope me-2"></i>Email address</label>
+          </div>
+
+          <!-- Password -->
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control custom-input" id="password"  name="mobileNo" [(ngModel)]="loginObj.mobileNo"  placeholder="Password">
+            <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
+          </div>
+
+          <!-- Remember + Forgot -->
+          <div class="d-flex justify-content-between mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember">
+              <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <a href="#" class="text-decoration-none small">Forgot password?</a>
+          </div>
+
+          <!-- Login Button -->
+          <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary btn-lg login-btn" (click)="onLogin()">
+              Login
+            </button>
+          </div>
+
+          <!-- Divider -->
+          <div class="text-center mb-3">
+            <span class="divider">OR</span>
+          </div>
+
+          <!-- Social Login -->
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-danger">
+              <i class="bi bi-google me-2"></i>Login with Google
+            </button>
+            <button class="btn btn-outline-primary">
+              <i class="bi bi-facebook me-2"></i>Login with Facebook
+            </button>
+          </div>
+
+          <!-- Register -->
+          <div class="text-center mt-4">
+            <small>
+              Don't have an account?
+              <a href="#" class="fw-semibold text-decoration-none">Sign up</a>
+            </small>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+</div>
+
+
+
