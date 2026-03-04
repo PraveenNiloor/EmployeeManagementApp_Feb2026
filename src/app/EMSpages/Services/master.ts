@@ -16,7 +16,7 @@ export class Master {
 
   onLogin(loginObj:any)
   {
-   return this.http.post(this.apiUrl+"EmployeeMaster/login",loginObj) 
+   return this.http.post(this.apiUrl+"JWTAuthentication/login",loginObj) 
   }
 
   getAllDepartment()

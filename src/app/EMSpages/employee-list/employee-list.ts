@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, Host, HostListener, inject, OnInit, signal } from '@angular/core';
 import { employeeModel } from '../Models/employeeModel';
 import { designationModel } from '../Models/designationModel';
 import { Observable } from 'rxjs';
@@ -94,4 +94,14 @@ export class EmployeeList implements OnInit{
     this.newEmployeeObj = new employeeModel();
   }
   
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event: MouseEvent) {
+    event.preventDefault();
+  }
+
+  @HostListener('copy', ['$event'])
+  onCopy(event: ClipboardEvent) {
+    event.preventDefault();
+  }
 }

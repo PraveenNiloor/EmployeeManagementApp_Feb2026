@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 import { Master } from '../Services/master';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { NumbersOnly } from '../Directives/numbers-only';
 
 @Component({
   selector: 'app-employee-form',
-  imports: [FormsModule,CommonModule,AsyncPipe],
+  imports: [FormsModule,CommonModule,AsyncPipe,NumbersOnly],
   templateUrl: './employee-form.html',
   styleUrl: './employee-form.css',
 })
@@ -42,10 +43,13 @@ export class EmployeeForm implements OnInit {
       }
    
     })
+     if(this.newEmployeeObj.empId === 0)
+    {
+      this.onReset();
+    }
   }
   ngOnInit(): void {
-    //this.getAllEmployees();
-    
+   
   }
 
 
@@ -106,11 +110,11 @@ onSaveEmp() {
   }
 
   getEmpById()
-  {//debugger
+  {debugger
     this.empService.getEmpById(this.newEmployeeObj.empId).subscribe({
       next:(res:any)=>
       {
-        //debugger
+        debugger
         this.newEmployeeObj = res;
       },
        error: (err: any) => {

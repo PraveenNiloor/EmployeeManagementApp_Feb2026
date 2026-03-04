@@ -56,7 +56,7 @@ export class Login {
 
   this.masterService.onLogin(this.loginObj).subscribe({
     next: (result: any) => {
-      //debugger
+      debugger
       Swal.fire({
         icon: 'success',
         title: 'Login Successful!',
@@ -65,6 +65,7 @@ export class Login {
         showConfirmButton: false
       }).then(() => {
         //debugger
+        localStorage.setItem('JWTtoken', result.token);
         localStorage.setItem('EmpUser',JSON.stringify(result));
         if(result.role === 'Employee')
         {
